@@ -1,5 +1,7 @@
 const http = require('http')
 
+// The listen() function keeps the program alive (keeps event queue not empty).
+// The close() function removes the listener and the program terminates.
 const server = http.createServer(function(req, res) {
   if (req.url === '/hello')
     res.end('hello')
@@ -9,6 +11,8 @@ const server = http.createServer(function(req, res) {
     res.end('goodbye')
     server.close()
   }
+  
+  // process.env is a ref to the env variables.
 }).listen(process.env.PORT || 3000, function() {
   console.log('Listening...')
 })

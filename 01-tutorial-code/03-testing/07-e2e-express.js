@@ -6,6 +6,7 @@ const fetch = require('node-fetch')
 
 const waitUntilListening = (subProcess) => 
   new Promise((fulfill, reject) => {
+      // Our server outputs 'listening' when started, use it as a trigger to start test.
     subProcess.stdout.on('data', fulfill)
     subProcess.on('err', reject)
     subProcess.on('exit', (code) => 
@@ -20,8 +21,10 @@ describe("mult", function() {
       env: Object.assign({}, process.env, {
         PORT: PORT_NUMBER
       }),
+         // Put stdout and stderr in the subprocess.
       silent: true
     })
+      // Need to wait for node to start the server and start listening
     yield waitUntilListening(subProcess)    
   }))
   
@@ -36,6 +39,7 @@ describe("mult", function() {
   }))
   
   it("02-should multiply negatives", Promise.coroutine(function*() {
+      // fetch here is a lib which implements the standard fetch.
     const response = yield fetch(`http://localhost:${PORT_NUMBER}/mult?a=5&b=-6`)
     expect(response.ok).to.be.true
     

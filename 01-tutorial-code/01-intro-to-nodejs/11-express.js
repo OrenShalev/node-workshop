@@ -1,7 +1,9 @@
 const express = require('express')
 
+// express is a function that returns "instances" -- factory.
 const app = express()
 
+// Define handlers for method-url combos. Order matters.
 app.get('/hello', function(req, res) {
   res.send('hello')
 })

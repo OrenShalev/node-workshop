@@ -2,6 +2,7 @@ const express = require('express')
 
 const app = express()
 
+// For RESTful API. Can also use regex and others
 app.get('/add/:a/:b', function(req, res) {
   res.send((parseInt(req.params.a) + parseInt(req.params.b)).toString())
 })

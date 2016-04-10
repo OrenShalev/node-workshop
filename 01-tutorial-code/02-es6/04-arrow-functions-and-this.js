@@ -5,6 +5,7 @@ const path = require('path')
 const operations = {
   copyAdditions: '',
   copyFile(sourceFile, targetFile, cb) {
+      // איחס
     const that = this
     
     fs.readFile(sourceFile, function (err, contentBuffer) {

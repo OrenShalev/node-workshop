@@ -3,6 +3,13 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs')
 
+/** 
+ * Promises are like callbacks, except better:
+ * 1. Chainsable.
+ * 2. Errors are caught and trigger reject(), no need to catch them ourselves.
+ * 3. Catch will work no matter who in the chain called reject() or threw an error.
+ * how to USE promises below.
+ */
 const readFileAsync = (f, options) => 
   new Promise((fulfill, reject) => {
     fs.readFile(f, options, (err, content) => {
@@ -13,11 +20,13 @@ const readFileAsync = (f, options) =>
     })
   }) 
 
+// similar to above just without several {}{}{}...
 const writeFileAsync = (f, content) => 
   new Promise((fulfill, reject) =>
     fs.writeFile(f, content, (err) => 
       err ? reject(err) : fulfill())) 
 
+// This func doesn't to the copy -- it returns a promise to do the copy.
 function copyFile(sourceFile, targetFile) {
   return readFileAsync(sourceFile)
     .then(contentBuffer => {

@@ -15,6 +15,7 @@ describe("mult", function() {
   const PORT_NUMBER = 5364
   let server
   before((done) => {
+    // instead of starting a process, just require the server and call listen().
     const app = require(`${__dirname}/src/express-mult-dual.js`)
     
     server = app.listen(PORT_NUMBER, done)

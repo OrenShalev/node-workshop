@@ -3,6 +3,7 @@ const path = require('path')
 const os = require('os')
 const fs = require('fs')
 const Promise = require('bluebird')
+// Iterates over fs, for each func adds promisified funcAsync.
 Promise.promisifyAll(fs)
 
 function copyFile(sourceFile, targetFile) {

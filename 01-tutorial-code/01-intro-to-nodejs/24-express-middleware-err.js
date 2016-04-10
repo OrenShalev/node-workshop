@@ -8,6 +8,7 @@ app.get('/error', function(req, res) {
   throw new Error('Hello, world')
 })
 
+// If 4 params, then the 1st is err which was thrown earlier in the chain.
 app.use(function(err, req, res, next) {
   res.send(err.message)
 })

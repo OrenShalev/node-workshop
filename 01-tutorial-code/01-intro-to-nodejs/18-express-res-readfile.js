@@ -3,6 +3,7 @@ const fs = require('fs')
 
 const app = express()
 
+// Note that the get handler doesn't have to send response -- it can be done in an "internal" callback.
 app.get('/hello', function(req, res) {
   fs.readFile(__dirname + '/data/hello-world.txt', function(err, content) {
     if (err)

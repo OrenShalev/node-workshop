@@ -2,6 +2,7 @@ const express = require('express')
 
 const app = express()
 
+// Express includes mime, sends relevant headers accroding to file extension.
 app.get('/hello', function(req, res) {
   res.sendFile(__dirname + '/data/hello-world.txt')
 })

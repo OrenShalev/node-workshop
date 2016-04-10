@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
+// Middleware: use bodyParser before the POST handler. It reads the request and does something to it, in this case set req.body.
+// The middleware passed as param to use() should be a function, so bodyParser.something(...) returns a function. 
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/add', function(req, res) {

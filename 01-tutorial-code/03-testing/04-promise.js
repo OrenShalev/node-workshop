@@ -6,6 +6,7 @@ const Promise = require('bluebird')
 const promiseMult = Promise.promisify(asyncMult)
 const promiseBadMult = Promise.promisify(asyncBadMult)
 
+// Mocha sees promise and knows to wait for it.
 describe("mult", function() {
   it("01-should multiply stuff", () =>
     promiseMult(3, 4)

@@ -4,6 +4,7 @@ const Promise = require('bluebird')
 
 const execAsync = Promise.promisify(childProcess.exec, {multiArgs: true})
 
+// Running a process and checking stdout and stderr
 describe("mult", function() {
   it("01-should multiply stuff", Promise.coroutine(function*() {
     const output = yield execAsync(`node "${__dirname}/src/cmd-mult.js" 4 5`)

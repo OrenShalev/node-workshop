@@ -1,6 +1,7 @@
 const os = require('os')
 const path = require('path')
 const fs = require('fs')
+// Get the exports object, save in a const, below use one of the exports.
 const theModule = require('./08a-modules-export')
 
 const sourceFile = path.join(__dirname, 'data/hello-world.txt')

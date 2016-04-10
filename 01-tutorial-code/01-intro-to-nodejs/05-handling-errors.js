@@ -10,7 +10,10 @@ fs.readFile(sourceFile, function(err, contentBuffer) {
   if (err)
     return fs.readFile(sourceFile2, function(err, contentBuffer) {
       if (err)
+          // Unhandled exception. Call stack is very shallow, usually no-one below will have a "catch". This is "fail-fast".
         throw err
+      // first failed, second succeeded, so call "next", which can also be called if first 'if' succeeded. 
+      // Usually that's how we avoid long convoluted chains of handlers.
       next(contentBuffer)
     })
   else

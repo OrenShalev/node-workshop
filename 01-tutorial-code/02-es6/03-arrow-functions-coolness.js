@@ -2,6 +2,7 @@ const fs = require('fs')
 const os = require('os')
 const path = require('path')
 
+// Looks like anonymous, but function.name is 'copyFile'. Nice. :)
 const copyFile = (sourceFile, targetFile, cb) => {
   fs.readFile(sourceFile, (err, contentBuffer) => {
     if (err)

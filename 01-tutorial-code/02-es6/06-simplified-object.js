@@ -6,6 +6,7 @@ const sourceFile = path.join(__dirname, 'data/hello-world.txt')
 const targetFile = path.join(os.tmpdir(), 'copied-file.txt')
 
 const operations = {
+  // defining a function with a name, not like "copyFile: function(cb) {"
   copyFile(cb) {
     fs.readFile(this.sourceFile, (err, contentBuffer) => {
       if (err)
@@ -19,6 +20,8 @@ const operations = {
       })
     })
   },
+
+  // Instead of writing "sourceFile: sourceFile", ...
   sourceFile,
   targetFile
 }

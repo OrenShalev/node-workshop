@@ -1,5 +1,7 @@
 "use strict"
 
+// var's scope is the entire function, let's scope is block -- like people expect.
+// if you give const an object -- you can't change the object, but you CAN change its internals.
 const fibonacci = (n) => {
   let a = 0
   let b = 1

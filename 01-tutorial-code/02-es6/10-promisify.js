@@ -4,6 +4,8 @@ const os = require('os')
 const fs = require('fs')
 const Promise = require('bluebird')
 
+// Promisify receives a callback-based function and returns a promise -- but assumes a lot about the function. 
+// The function should be written according to convention, like that cb is the last param.
 function copyFile(sourceFile, targetFile) {
   return Promise.promisify(fs.readFile)(sourceFile)
     .then(contentBuffer => {

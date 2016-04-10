@@ -6,6 +6,7 @@ const app = express()
 app.get('/hello', function(req, res) {
   res.set('Content-Type', 'text/plain')
 
+// createReadStream() returns a stream object -- which can be piped.
   fs.createReadStream(__dirname + '/data/hello-world.txt').pipe(res)
 })
 

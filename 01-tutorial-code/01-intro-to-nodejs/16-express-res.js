@@ -2,6 +2,7 @@ const express = require('express')
 
 const app = express()
 
+// Servers that does division. If dividing by zero, return immediately with status 500. Done better in next file.
 app.get('/div', function(req, res) {
   if (parseInt(req.query.b) === 0)
     return res.status(500).end()
